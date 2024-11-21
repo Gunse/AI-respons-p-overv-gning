@@ -8,4 +8,14 @@ Derudover skal du bruge følgende integrationer:
 
 Google AI: https://www.home-assistant.io/integrations/google_generative_ai_conversation/
 
-Opret der efter en automation: 
+!! Husk selvfølgelig at genstarte din HA efter installation !! 
+
+Åben derefter konfigurationerne og skab en kode: 
+
+Opret derefter en automation: "Camera 1 - Snapshot on motion" - kopier koden jeg har lagt ind. 
+
+Når du har lagt koden ind i automationen, så kan du gå tilbage til "rediger i visuel editor" og vælge den entity som er dit kamera/motionsensor. 
+
+Når du er færdig, så opretter du et script og indesætter koden
+
+
