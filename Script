@@ -1,0 +1,71 @@
+alias: Camera 1 - Snapshot, AI & Notification
+sequence:
+  - metadata: {}
+    data:
+      filename: <<hvor vil du have filen ligger>> - i mit tilfælde: "/config/www/arlo_snapshot.jpg"
+    target:
+      device_id: <<Indtast Device ID>>
+    enabled: true
+    action: camera.snapshot
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 500
+    enabled: true
+  - metadata: {}
+    data:
+      filename: <<hvor vil du have filen ligger>>
+    target:
+      device_id: <<Indtast Device ID>>
+    enabled: true
+    action: camera.snapshot
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 500
+    enabled: true
+  - metadata: {}
+    data:
+      filename: <<hvor vil du have filen ligger>>
+    target:
+      device_id: <<Indtast Device ID>>
+    enabled: true
+    action: camera.snapshot
+  - metadata: {}
+    data:
+      prompt: >-
+        Bevægelse er blevet opdaget – hvad ser du på billedet? Hvis du ser en
+        person eller en bil, giv en kort beskrivelse af dem. Forsøg at inkludere
+        detaljer som tøj eller nummerplade, hvis muligt. Beskriv ikke bygninger
+        eller stationære objekter. Hvis der ikke er nogen synlig årsag til
+        bevægelsen, svar blot med 'Ingen åbenlys bevægelse detekteret.' Hold
+        beskeden kort og underholdende – som en notifikation på Apple!
+      image_filename:
+        - <<hvor har du filen liggende>> - den samme som du har brugt i <<hvor vil du have filen ligger>>
+    response_variable: generated_content
+    action: google_generative_ai_conversation.generate_content
+  - if:
+      - condition: template
+        value_template: "{{ 'No Obvious Motion Detected.' in generated_content.text }}"
+    then:
+      - stop: ""
+    else:
+      - metadata: {}
+        data:
+          title: <<Din tiltel på notificationen>>
+          message: >-
+            {{ generated_content['text'] }} - Tid: {{ now().strftime('%Y-%m-%d
+            %H:%M:%S') }}
+          data:
+            image: <<http://ip-adresse på din HA/<<hvor har du filen liggende>>
+        action: notify.mobile_app_<<Din iphone eller Android>>
+      - data:
+          entity_id: input_text.last_notification_message
+          value: >-
+            {{ generated_content['text'] }} - Tid: {{ now().strftime('%Y-%m-%d
+            %H:%M:%S') }}
+        action: input_text.set_value
+mode: single
+description: ""
