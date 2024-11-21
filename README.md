@@ -16,6 +16,11 @@ Opret derefter en automation: "Camera 1 - Snapshot on motion" - kopier koden jeg
 
 Når du har lagt koden ind i automationen, så kan du gå tilbage til "rediger i visuel editor" og vælge den entity som er dit kamera/motionsensor. 
 
-Når du er færdig, så opretter du et script og indesætter koden
+Når du er færdig, så opretter du et script og indesætter koden som jeg har lavet under "script"
+
+Når du er færdig, så burde dit kamera kører med Google AI ;) 
+
+Skriv på Facebook hvis de driller, så skal jeg nok se om jeg ikke kan hjælpe! 
 
 
+/Sammen har vi det sjovere! 
