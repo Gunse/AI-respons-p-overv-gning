@@ -1,0 +1,14 @@
+alias: Camera 1 - Snapshot on motion
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.aarlo_motion_hovedindgang
+    from: "off"
+    to: "on"
+conditions: []
+actions:
+  - action: script.camera_1_snapshot_ai_notification
+    metadata: {}
+    data: {}
+mode: single
