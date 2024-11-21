@@ -10,13 +10,13 @@ Google AI: https://www.home-assistant.io/integrations/google_generative_ai_conve
 
 !! Husk selvfølgelig at genstarte din HA efter installation !! 
 
-Åben derefter konfigurationerne og skab en kode: 
+Åben derefter konfigurationerne og skab en kode i Google (Det er gratis) 
+
+Når du er færdig, så opretter du et script og indesætter koden som jeg har lavet under "script"
 
 Opret derefter en automation: "Camera 1 - Snapshot on motion" - kopier koden jeg har lagt ind. 
 
 Når du har lagt koden ind i automationen, så kan du gå tilbage til "rediger i visuel editor" og vælge den entity som er dit kamera/motionsensor. 
-
-Når du er færdig, så opretter du et script og indesætter koden som jeg har lavet under "script"
 
 Når du er færdig, så burde dit kamera kører med Google AI ;) 
 
